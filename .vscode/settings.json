@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "stdlib.h": "c",
+        "s21_matrix.h": "c",
+        "check.h": "c",
+        "test_matrix.h": "c"
+    }
+}
