@@ -77,8 +77,7 @@ START_TEST(test_inverse_matrix_identity) {
     expected.matrix[1][0] = 0; expected.matrix[1][1] = 1; expected.matrix[1][2] = 0;
     expected.matrix[2][0] = 0; expected.matrix[2][1] = 0; expected.matrix[2][2] = 1;
 
-    int code = s21_inverse_matrix(&A, &result);
-    ck_assert_int_eq(code, SUCCESS);
+    ck_assert_int_eq(s21_inverse_matrix(&A, &result), SUCCESS);
     ck_assert_int_eq(result.rows, 3);
     ck_assert_int_eq(result.columns, 3);
     ck_assert_int_eq(s21_eq_matrix(&result, &expected), SUCCESS);

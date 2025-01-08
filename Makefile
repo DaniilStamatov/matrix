@@ -25,6 +25,11 @@ tests:
 	${CC} $(CFLAGS) $(GCOV_FLAGS) $(SOURCES) ${TEST_SRC} $< -o unit_test $(CHECK_LIBS)
 	./unit_test
 
+valgrind_tests: $(TEST_EXECUTABLES)
+	@echo "Running tests with Valgrind..."
+	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all --trace-children=yes -s ./unit_test 2>&1 || true;
+	@echo "end"
+
 gcov_report: tests
 	@echo "Generating coverage report..."
 	lcov --capture --directory . --output-file coverage.info

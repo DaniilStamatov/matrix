@@ -12,7 +12,8 @@ START_TEST(test_transpose_regular) {
     ck_assert_int_eq(result.rows, 3);
     ck_assert_int_eq(result.columns, 2);
     ck_assert_double_eq(result.matrix[0][0], 1);
-    ck_assert_double_eq(result.matrix[0][1], 4);
+    ck_assert_double_eq(result.matrix[0][
+        1], 4);
     ck_assert_double_eq(result.matrix[1][0], 2);
     ck_assert_double_eq(result.matrix[1][1], 5);
     ck_assert_double_eq(result.matrix[2][0], 3);

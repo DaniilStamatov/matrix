@@ -12,10 +12,6 @@ START_TEST(test_sub_positive) {
     B.matrix[0][0] = 1; B.matrix[0][1] = 2;
     B.matrix[1][0] = 3; B.matrix[1][1] = 4;
 
-    s21_create_matrix(2, 2, &result);
-    result.matrix[0][0] = 4; result.matrix[0][1] = 4;
-    result.matrix[1][0] = 4; result.matrix[1][1] = 4;
-
     int code = s21_sub_matrix(&A, &B, &result);
 
     ck_assert_int_eq(code, SUCCESS);
@@ -70,10 +66,6 @@ START_TEST(test_sub_negative_values) {
 
     B.matrix[0][0] = -5; B.matrix[0][1] = -6;
     B.matrix[1][0] = -7; B.matrix[1][1] = -8;
-
-    s21_create_matrix(2, 2, &result);
-    result.matrix[0][0] = 4; result.matrix[0][1] = 4;
-    result.matrix[1][0] = 4; result.matrix[1][1] = 4;
 
     int code = s21_sub_matrix(&A, &B, &result);
 

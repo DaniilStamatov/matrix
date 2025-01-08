@@ -11,10 +11,6 @@ START_TEST(test_sum_positive) {
     B.matrix[0][0] = 5; B.matrix[0][1] = 6;
     B.matrix[1][0] = 7; B.matrix[1][1] = 8;
 
-    s21_create_matrix(2, 2, &result);
-    result.matrix[0][0] = 6; result.matrix[0][1] = 8;
-    result.matrix[1][0] = 10; result.matrix[1][1] = 12;
-
     int code = s21_sum_matrix(&A, &B, &result);
 
     ck_assert_int_eq(code, SUCCESS);
@@ -69,10 +65,6 @@ START_TEST(test_sum_negative_values) {
 
     B.matrix[0][0] = -5; B.matrix[0][1] = -6;
     B.matrix[1][0] = -7; B.matrix[1][1] = -8;
-
-    s21_create_matrix(2, 2, &result);
-    result.matrix[0][0] = -6; result.matrix[0][1] = -8;
-    result.matrix[1][0] = -10; result.matrix[1][1] = -12;
 
     int code = s21_sum_matrix(&A, &B, &result);
 

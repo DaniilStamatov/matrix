@@ -212,12 +212,10 @@ int s21_inverse_matrix(matrix_t *A, matrix_t *result) {
         code = FAILURE;
     } else {
         matrix_t temp = {0};
-        s21_create_matrix(A->rows, A->columns, &temp);
         code = s21_calc_complements(A, &temp);
         if(code == SUCCESS) {
             matrix_t transposed = {0};
             s21_transpose(&temp, &transposed);
-            s21_create_matrix(A->rows, A->columns, result);
             s21_mult_number(&transposed, 1.0 / determinant, result);
             s21_remove_matrix(&transposed);
         }

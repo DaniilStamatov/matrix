@@ -7,7 +7,6 @@ START_TEST(test_mult_number_positive) {
     A.matrix[0][0] = 1; A.matrix[0][1] = 2;
     A.matrix[1][0] = 3; A.matrix[1][1] = 4;
 
-    s21_create_matrix(2, 2, &result);
     int code = s21_mult_number(&A, number, &result);
 
     ck_assert_int_eq(code, SUCCESS);
@@ -29,7 +28,6 @@ START_TEST(test_mult_number_negative) {
     A.matrix[0][0] = 1; A.matrix[0][1] = 2;
     A.matrix[1][0] = 3; A.matrix[1][1] = 4;
 
-    s21_create_matrix(2, 2, &result);
     int code = s21_mult_number(&A, number, &result);
 
     ck_assert_int_eq(code, SUCCESS);
@@ -51,7 +49,6 @@ START_TEST(test_mult_number_zero) {
     A.matrix[0][0] = 1; A.matrix[0][1] = 2;
     A.matrix[1][0] = 3; A.matrix[1][1] = 4;
 
-    s21_create_matrix(2, 2, &result);
     int code = s21_mult_number(&A, number, &result);
 
     ck_assert_int_eq(code, SUCCESS);

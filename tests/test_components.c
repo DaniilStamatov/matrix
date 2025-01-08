@@ -49,7 +49,7 @@ END_TEST
 
 
 START_TEST(test_calc_complements_3x3_2) {
-    matrix_t A, expected,result;
+    matrix_t A, expected, result;
     s21_create_matrix(3, 3, &A);
     s21_create_matrix(3, 3, &expected);
     A.matrix[0][0] = 1; A.matrix[0][1] = 2; A.matrix[0][2] = 3;
@@ -68,6 +68,7 @@ START_TEST(test_calc_complements_3x3_2) {
     
     s21_remove_matrix(&A);
     s21_remove_matrix(&result);
+    s21_remove_matrix(&expected);
 }
 END_TEST
 

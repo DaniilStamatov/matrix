@@ -1,7 +1,7 @@
 #include "test_matrix.h"
 
 START_TEST(test_mult_positive) {
-    matrix_t A, B, result;
+    matrix_t A, B;
     s21_create_matrix(2, 3, &A);
     s21_create_matrix(3, 2, &B);
 
@@ -11,22 +11,21 @@ START_TEST(test_mult_positive) {
     B.matrix[0][0] = 7; B.matrix[0][1] = 8;
     B.matrix[1][0] = 9; B.matrix[1][1] = 10;
     B.matrix[2][0] = 11; B.matrix[2][1] = 12;
+    matrix_t result = {0};
+    matrix_t check = {0};
 
-    s21_create_matrix(2, 2, &result);
-    result.matrix[0][0] = 58; result.matrix[0][1] = 64;
-    result.matrix[1][0] = 139; result.matrix[1][1] = 154;
-
-    int code = s21_mult_matrix(&A, &B, &result);
-
-    ck_assert_int_eq(code, SUCCESS);
-    ck_assert_double_eq(result.matrix[0][0], 58);
-    ck_assert_double_eq(result.matrix[0][1], 64);
-    ck_assert_double_eq(result.matrix[1][0], 139);
-    ck_assert_double_eq(result.matrix[1][1], 154);
+    s21_create_matrix(2, 2, &check);
+    check.matrix[0][0] = 58;
+    check.matrix[0][1] = 64;
+    check.matrix[1][0] = 139;
+    check.matrix[1][1] = 154;
+    ck_assert_int_eq( s21_mult_matrix(&A, &B, &result), SUCCESS);
+    ck_assert_int_eq(s21_eq_matrix(&result, &check), SUCCESS);
 
     s21_remove_matrix(&A);
     s21_remove_matrix(&B);
     s21_remove_matrix(&result);
+    s21_remove_matrix(&check);
 }
 END_TEST
 
@@ -71,10 +70,6 @@ START_TEST(test_mult_negative_values) {
     B.matrix[0][0] = -7; B.matrix[0][1] = -8;
     B.matrix[1][0] = -9; B.matrix[1][1] = -10;
     B.matrix[2][0] = -11; B.matrix[2][1] = -12;
-
-    s21_create_matrix(2, 2, &result);
-    result.matrix[0][0] = 58; result.matrix[0][1] = 64;
-    result.matrix[1][0] = 139; result.matrix[1][1] = 154;
 
     int code = s21_mult_matrix(&A, &B, &result);
 
